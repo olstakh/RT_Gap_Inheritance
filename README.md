@@ -11,3 +11,7 @@ When `<DisableTransitiveProjectReferences>` is set to `true` - `Consumer` needs 
 
 Currently it produces `RT0002` warning, and if you remove that references - build will be failing.
 RT needs to account for type hierarchy when marking assemblies as used.
+
+# Repro
+1. `dotnet build` - observe `RT0002` warning to remove `ProviderDependency` reference from `Consumer` project reference
+2. Remove the reference and observe build failing due to using a type from non-referenced assembly
